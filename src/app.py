@@ -39,8 +39,6 @@ def add_member():
     body = request.get_json()   #va a coger toda la información del body postman
     if "first_name" not in body:
         return jsonify("Falta el campo first_name"),400
-    if "last_name" not in body:
-        return jsonify("Falta el campo last_name"),400
     if "age" not in body:
         return jsonify("Falta el campo age"),400
     if "lucky_numbers" not in body:
