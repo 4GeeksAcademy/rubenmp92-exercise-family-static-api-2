@@ -67,6 +67,16 @@ def get_member(id):
     print(id)
     return jsonify(member), 200
 
+@app.route('/member/<int:id>', methods=['DELETE'])
+def delete_member(id):
+     estado = jackson_family.delete_member(id)
+     if estado == True:
+         return jsonify({"done": True}), 200
+     else: 
+         return jsonify("El usuario no se ha encontrado"), 400
+
+       
+
 # this only runs if `$ python src/app.py` is executed
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3000))
